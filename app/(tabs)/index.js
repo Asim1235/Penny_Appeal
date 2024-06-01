@@ -441,7 +441,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255, 156, 39, 1)",
     paddingHorizontal: 15,
     paddingVertical: 25,
-    width: 0.9 * screenWidth,
+    width: 0.93 * screenWidth,
     alignItems: "center",
     justifyContent: "space-between",
     alignSelf: "center",
