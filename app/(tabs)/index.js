@@ -117,7 +117,7 @@ export default function HomeScreen() {
       </View>
       <Text style={styles.cardDescription}>{item.desc}</Text>
       <LinearGradient
-        colors={['rgba(255, 220, 188, 0)', 'rgba(255, 220, 188, 0.5)']}
+        colors={['rgba(255, 230, 208, 0)', 'rgba(255, 230, 208, 0.5)', "#E1C4A4"]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         style={styles.gradient}
@@ -333,18 +333,21 @@ const styles = StyleSheet.create({
   cardImage: {
     height: 26,
     width: 26,
+    zIndex:999
   },
   cardDescription: {
     fontSize: fontSize.verbiage_20,
     fontFamily: "ProximaNovaBold",
     color: "rgba(0, 0, 0, 0.5)",
+    zIndex:999
+
   },
   gradient: {
     position: 'absolute',
     left: 0, // Ensure the gradient starts from the left
     top: 0,  // Ensure the gradient starts from the top
     width: 0.44 * screenWidth, // Cover the full width of the card
-    height:  0.22 * screenWidth, // Cover the full height of the card
+    height:  0.24 * screenWidth, // Cover the full height of the card
     borderRadius: 16,
     
     // backgroundColor:"red"
