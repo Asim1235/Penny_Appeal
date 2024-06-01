@@ -5,25 +5,26 @@ import { fontSize, screenWidth } from "../constants/CommonStyles";
 
 const DualProgressBar = ({ value1, value2, total }) => {
   const percentage1 = (value1 / total) * 100;
-  const percentage2 = (value2 / total) * 100;
+  const percentage2 = (44 / total) * 100;
 
   return (
     <>
       <View
         style={{
           flexDirection: "row",
-          width: screenWidth * 0.9,
+          width: screenWidth * 0.93,
           height: 20,
           alignSelf: "center",
           justifyContent: "space-between",
           alignItems: "center",
-          marginTop: 10,
+          marginTop: 14,
+          marginBottom: 4,
         }}
       >
         <Text
           style={{
-            fontSize: fontSize.verbiage_16,
-            fontFamily: "GreySansSemiBold",
+            fontSize: 14,
+            fontFamily: "ProximaNovaBold",
             color: "#FFF",
           }}
         >
@@ -32,8 +33,8 @@ const DualProgressBar = ({ value1, value2, total }) => {
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text
             style={{
-              fontSize: fontSize.verbiage_16,
-              fontFamily: "GreySansSemiBold",
+              fontSize: 14,
+              fontFamily: "ProximaNovaBold",
               color: "#FFF",
             }}
           >
@@ -48,8 +49,8 @@ const DualProgressBar = ({ value1, value2, total }) => {
         </View>
         <Text
           style={{
-            fontSize: fontSize.verbiage_16,
-            fontFamily: "GreySansSemiBold",
+            fontSize: 14,
+            fontFamily: "ProximaNovaBold",
             color: "#FFF",
           }}
         >
@@ -60,13 +61,13 @@ const DualProgressBar = ({ value1, value2, total }) => {
         <View
           style={[
             styles.progressBar,
-            { width: `${percentage1}%`, backgroundColor: "#3B9781" },
+            { width: `${percentage1}%`, backgroundColor: "#3B9781",borderRadius: 5, zIndex:99 },
           ]}
         />
         <View
           style={[
             styles.progressBar,
-            { width: `${percentage2}%`, backgroundColor: "#FFF" },
+            { width: `${percentage2}%`, backgroundColor: "#FFF" , borderTopRightRadius:5, borderBottomRightRadius:5 , marginLeft:-3},
           ]}
         />
       </View>
@@ -77,12 +78,13 @@ const DualProgressBar = ({ value1, value2, total }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    height: 10,
-    width: screenWidth * 0.9,
+    height: 12,
+    width: screenWidth * 0.93,
     backgroundColor: "rgba(224, 224, 224, 0.5)",
     borderRadius: 5,
     overflow: "hidden",
     alignSelf: "center",
+    marginBottom: 8
   },
   progressBar: {
     height: "100%",

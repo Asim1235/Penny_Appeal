@@ -16,11 +16,12 @@ import {
 } from "../../constants/CommonStyles";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import DualProgressBar from "../../components/DualProgressBar";
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function HomeScreen() {
-  const value1 = 40;
+  const value1 = 450;
   const value2 = 25;
-  const total = 100;
+  const total = 1000;
   const tiles = [
     {
       id: "1",
@@ -107,12 +108,18 @@ export default function HomeScreen() {
   ];
 
   const renderItemTiles = ({ item }) => (
+
+
     <TouchableOpacity style={styles.cardContainer}>
       <View style={styles.cardHeader}>
         <Text style={styles.cardTitle}>{item.title}</Text>
         <Image source={item.img} style={styles.cardImage} />
       </View>
       <Text style={styles.cardDescription}>{item.desc}</Text>
+      <LinearGradient
+        colors={['rgba(255, 220, 188, 0)', 'rgba(255, 220, 188, 0.5)']}
+        style={styles.gradient}
+      />
     </TouchableOpacity>
   );
 
@@ -124,7 +131,7 @@ export default function HomeScreen() {
   );
 
   const renderItemEmergencyResponse = ({ item }) => (
-    <TouchableOpacity style={styles.largeCardContainer}>
+    <TouchableOpacity >
       <Image
         source={item.img}
         style={styles.largeCardImage}
@@ -164,11 +171,11 @@ export default function HomeScreen() {
           style={styles.headerImage}
           resizeMode="cover"
         >
-          <Text style={styles.headerTextPrimary}>penny</Text>
-          <Text style={styles.headerTextSecondary}>appeal</Text>
+          {/* <Text style={styles.headerTextPrimary}>penny</Text>
+            <Text style={styles.headerTextSecondary}>appeal</Text> */}
         </ImageBackground>
         <View style={styles.headerContent}>
-          <Text style={styles.greetingText}>Salaam, Ahmad</Text>
+          <Text style={styles.greetingText}>Salam, <Text style={styles.nameText}>Ahmed</Text></Text>
           <TouchableOpacity>
             <Image
               source={require("../../assets/images/search.png")}
@@ -186,7 +193,7 @@ export default function HomeScreen() {
             style={styles.flatList}
             columnWrapperStyle={styles.columnWrapper}
           />
-          <Text style={[styles.sectionTitle, { marginTop: 25, color: "#000" }]}>
+          <Text style={[styles.sectionTitle, { marginTop: 20, color: "#000" }]}>
             Calculators
           </Text>
           <FlatList
@@ -200,7 +207,7 @@ export default function HomeScreen() {
           />
         </View>
       </ImageBackground>
-      <Text style={[styles.sectionTitle, { marginTop:Platform.OS === "android" ? 55 : 35 }]}>
+      <Text style={[styles.sectionTitle, { marginTop: Platform.OS === "android" ? 85 : 35  , marginBottom:14}]}>
         Emergency Response
       </Text>
       <FlatList
@@ -222,7 +229,7 @@ export default function HomeScreen() {
         contentContainerStyle={styles.horizontalFlatList}
         ListFooterComponent={<View style={styles.footerSpacing} />}
       />
-      <Text style={[styles.sectionTitle, { marginTop: 0 }]}>Events</Text>
+      <Text style={[styles.sectionTitle, { marginTop: 0, marginBottom:11 }]}>Events</Text>
       <FlatList
         data={events}
         renderItem={renderItemEvents}
@@ -251,32 +258,31 @@ const styles = StyleSheet.create({
   backgroundImage: {
     height: screenHeight * 0.65,
     width: screenWidth,
+    // backgroundColor:'red'
   },
   headerImage: {
-    height: screenHeight * 0.15,
-    width: screenWidth * 0.35,
-    alignItems: "center",
-    justifyContent: "center",
+    height: screenWidth * 0.286,
+    width: screenWidth * 0.45,
   },
+
   headerTextPrimary: {
+    backgroundColor: 'pink',
+    width: '70%',
     color: "#EF7D00",
     fontSize: fontSize.title_30,
     fontFamily: "GreySansRegular",
-    paddingLeft: 8,
-    width: "100%",
   },
   headerTextSecondary: {
+    width: '70%',
     color: "#EF7D00",
-    paddingLeft: 8,
     fontSize: 0.036 * screenHeight,
-    fontFamily: "GreySansBlack",
-    width: "100%",
+    fontFamily: "GreySansBlack"
   },
   headerContent: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    width: "70%",
+    width: screenWidth * 0.59,
     position: "absolute",
     right: 0,
     top: screenHeight * 0.065,
@@ -284,10 +290,16 @@ const styles = StyleSheet.create({
   greetingText: {
     color: "#FFF",
     paddingTop: 5,
-    fontSize: 0.036 * screenHeight,
-    fontFamily: "GreySansSemiBold",
+    fontSize: 24,
+    fontFamily: "ProximaNovaBold",
     maxWidth: "75%",
     marginRight: 10,
+    fontWeight: "bold",
+    lineHeight: 28
+  },
+  nameText: {
+    fontSize: 24,
+    fontWeight: "400"
   },
   searchIcon: {
     height: 30,
@@ -297,13 +309,15 @@ const styles = StyleSheet.create({
   cardContainer: {
     backgroundColor: "#FFF",
     padding: 15,
-    width: 0.46 * screenWidth,
-    borderRadius: 10,
+    width: 0.44 * screenWidth, // Adjusted width to accommodate margins
+    marginHorizontal: 10, // Added horizontal margin
+    borderRadius: 16,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+    position: 'relative'
   },
   cardHeader: {
     flexDirection: "row",
@@ -311,7 +325,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: fontSize.verbiage_20,
-    fontFamily: "GreySansSemiBold",
+    fontFamily: "ProximaNovaBold",
     color: "#000",
   },
   cardImage: {
@@ -320,21 +334,32 @@ const styles = StyleSheet.create({
   },
   cardDescription: {
     fontSize: fontSize.verbiage_20,
-    fontFamily: "GreySansSemiBold",
+    fontFamily: "ProximaNovaBold",
     color: "rgba(0, 0, 0, 0.5)",
   },
+  gradient: {
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    width: '50%', // Adjust this to control the size of the gradient
+    height: '70%', // Adjust this to control the size of the gradient
+    borderRadius: 16,
+  },
+
   flatList: {
     marginTop: 10,
   },
   columnWrapper: {
     justifyContent: "space-evenly",
-    marginVertical: 5,
+    marginVertical: 9,
+    // marginHorizontal: 0,
+
   },
   sectionTitle: {
-    fontSize: fontSize.title_30,
-    fontFamily: "GreySansSemiBold",
-    marginVertical: 15,
-    marginHorizontal: 10,
+    fontSize: 19,
+    fontFamily: "ProximaNovaBold",
+    marginVertical: 18,
+    marginHorizontal: 15,
     color: "rgba(90, 96, 109, 1)",
   },
   smallCardContainer: {
@@ -344,14 +369,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: 0.275 * screenWidth,
     height: 0.275 * screenWidth,
-    marginHorizontal: 5,
+    marginHorizontal: 10,
     borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    marginBottom:5,
+    marginBottom: 5,
   },
   smallCardImage: {
     height: 0.125 * screenWidth,
@@ -359,7 +384,7 @@ const styles = StyleSheet.create({
   },
   smallCardTitle: {
     fontSize: fontSize.verbiage_20,
-    fontFamily: "GreySansSemiBold",
+    fontFamily: "ProximaNovaBold",
     color: "#000",
     marginTop: 5,
   },
@@ -377,9 +402,10 @@ const styles = StyleSheet.create({
     height: 0.5 * screenWidth,
   },
   featuredCardContainer: {
+    marginTop:-16,
     width: 0.6 * screenWidth,
     height: 0.7 * screenWidth,
-    marginHorizontal: -6,
+    marginHorizontal: -10,
     shadowColor: "#000",
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
@@ -388,7 +414,6 @@ const styles = StyleSheet.create({
   featuredCardImage: {
     width: 0.6 * screenWidth,
     height: 0.7 * screenWidth,
-    // backgroundColor: "pink",
   },
   eventCardContainer: {
     width: 0.75 * screenWidth,
@@ -425,13 +450,13 @@ const styles = StyleSheet.create({
   },
   faqButtonText: {
     fontSize: fontSize.verbiage_20,
-    fontFamily: "GreySansSemiBold",
+    fontFamily: "ProximaNovaBold",
     marginHorizontal: 10,
     color: "#FFF",
   },
   volunteerText: {
     fontSize: fontSize.verbiage_20,
-    fontFamily: "GreySansSemiBold",
+    fontFamily: "ProximaNovaBold",
     marginVertical: 10,
     marginBottom: 30,
     color: "rgba(255, 156, 39, 1)",

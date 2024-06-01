@@ -19,6 +19,11 @@ export default function RootLayout() {
     GreySansRegular: require('../assets/fonts/GreySansRegular.otf'),
     GreySansSemiBold: require('../assets/fonts/GreySansSemiBold.ttf'),
     GreySansBlack: require('../assets/fonts/GreySansBlack.ttf'),
+
+    ProximaNovaBold: require('../assets/fonts/ProximaNova-Bold.ttf'),
+    ProximaNovaRegular: require('../assets/fonts/ProximaNova-Regular.ttf'),
+
+
   });
 
   useEffect(() => {
