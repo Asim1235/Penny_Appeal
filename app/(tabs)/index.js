@@ -118,6 +118,8 @@ export default function HomeScreen() {
       <Text style={styles.cardDescription}>{item.desc}</Text>
       <LinearGradient
         colors={['rgba(255, 220, 188, 0)', 'rgba(255, 220, 188, 0.5)']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
         style={styles.gradient}
       />
     </TouchableOpacity>
@@ -339,11 +341,13 @@ const styles = StyleSheet.create({
   },
   gradient: {
     position: 'absolute',
-    right: 0,
-    bottom: 0,
-    width: '50%', // Adjust this to control the size of the gradient
-    height: '70%', // Adjust this to control the size of the gradient
+    left: 0, // Ensure the gradient starts from the left
+    top: 0,  // Ensure the gradient starts from the top
+    width: 0.44 * screenWidth, // Cover the full width of the card
+    height:  0.22 * screenWidth, // Cover the full height of the card
     borderRadius: 16,
+    
+    // backgroundColor:"red"
   },
 
   flatList: {
@@ -383,9 +387,10 @@ const styles = StyleSheet.create({
     width: 0.125 * screenWidth,
   },
   smallCardTitle: {
-    fontSize: fontSize.verbiage_20,
-    fontFamily: "ProximaNovaBold",
-    color: "#000",
+    fontSize: 16,
+    fontFamily: "ProximaNovaSemiBold",
+    color: "#5A606D",
+    fontWeight: '400',
     marginTop: 5,
   },
   largeCardContainer: {

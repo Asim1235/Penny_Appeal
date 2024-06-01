@@ -22,6 +22,7 @@ export default function RootLayout() {
 
     ProximaNovaBold: require('../assets/fonts/ProximaNova-Bold.ttf'),
     ProximaNovaRegular: require('../assets/fonts/ProximaNova-Regular.ttf'),
+    ProximaNovaSemiBold: require('../assets/fonts/ProximaNova-Semibold.ttf'),
 
 
   });

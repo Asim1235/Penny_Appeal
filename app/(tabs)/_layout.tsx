@@ -39,8 +39,8 @@ export default function TabLayout() {
           ),
           tabBarLabel: ({ focused }) => (
             <Text style={{
-              fontSize: fontSize.verbiage_16,
-              fontFamily: focused ? 'ProximaNovaBold' : 'ProximaNovaRegular',
+              fontSize: 12,
+              fontFamily: focused ? 'ProximaNovaSemiBold' : 'ProximaNovaRegular',
               paddingBottom: 15,
               textAlign: 'center', // Center text
 
@@ -59,9 +59,10 @@ export default function TabLayout() {
           ),
           tabBarLabel: ({ focused }) => (
             <Text style={{
-              fontSize: fontSize.verbiage_16,
-              fontFamily: focused ? 'ProximaNovaBold' : 'ProximaNovaRegular',
+              fontSize: 12,
+              fontFamily: focused ? 'ProximaNovaSemiBold' : 'ProximaNovaRegular',
               paddingBottom: 15,
+              textAlign: 'center', // Center text
     
             }}>
               Auto Donate
@@ -79,9 +80,10 @@ export default function TabLayout() {
           ),
           tabBarLabel: ({ focused }) => (
             <Text style={{
-              fontSize: fontSize.verbiage_16,
-              fontFamily: focused ? 'ProximaNovaBold' : 'ProximaNovaRegular',
+              fontSize: 12,
+              fontFamily: focused ? 'ProximaNovaSemiBold' : 'ProximaNovaRegular',
               paddingBottom: 15,
+              textAlign: 'center', // Center text
     
             }}>
               Round Up
@@ -98,9 +100,10 @@ export default function TabLayout() {
           ),
           tabBarLabel: ({ focused }) => (
             <Text style={{
-              fontSize: fontSize.verbiage_16,
-              fontFamily: focused ? 'ProximaNovaBold' : 'ProximaNovaRegular',
+              fontSize: 12,
+              fontFamily: focused ? 'ProximaNovaSemiBold' : 'ProximaNovaRegular',
               paddingBottom: 15,
+              textAlign: 'center', // Center text
     
             }}>
               Portfolio
@@ -117,9 +120,10 @@ export default function TabLayout() {
           ),
           tabBarLabel: ({ focused }) => (
             <Text style={{
-              fontSize: fontSize.verbiage_16,
-              fontFamily: focused ? 'ProximaNovaBold' : 'ProximaNovaRegular',
+              fontSize: 12,
+              fontFamily: focused ? 'ProximaNovaSemiBold' : 'ProximaNovaRegular',
               paddingBottom: 15,
+              textAlign: 'center', // Center text
     
             }}>
               Profile
